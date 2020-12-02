@@ -76,6 +76,9 @@
 						"referenceName": "dataflow1",
 						"type": "DataFlowReference"
 					},
+					"staging": {
+						"folderPath": "data/dw-staging"
+					},
 					"compute": {
 						"coreCount": 8,
 						"computeType": "General"
