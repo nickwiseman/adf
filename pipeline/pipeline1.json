@@ -62,7 +62,14 @@
 			{
 				"name": "dataflow1",
 				"type": "ExecuteDataFlow",
-				"dependsOn": [],
+				"dependsOn": [
+					{
+						"activity": "Copy data1",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
 				"policy": {
 					"timeout": "7.00:00:00",
 					"retry": 0,
@@ -77,7 +84,11 @@
 						"type": "DataFlowReference"
 					},
 					"staging": {
-						"folderPath": "data/dw-staging"
+						"linkedService": {
+							"referenceName": "AzureDataLakeStorage1",
+							"type": "LinkedServiceReference"
+						},
+						"folderPath": "images"
 					},
 					"compute": {
 						"coreCount": 8,
